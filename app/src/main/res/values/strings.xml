@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NoodoeTest</string>
+    <string name="loading">Loading…</string>
+    <string name="username">Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="Timezone">Time Zone</string>
+    <string name="login_field_is_empty">"All fields should not be empty."</string>
+</resources>
