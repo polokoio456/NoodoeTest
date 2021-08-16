@@ -22,3 +22,9 @@ fun FragmentManager.addFragment(
         commitAllowingStateLoss()
     }
 }
+
+fun FragmentManager.removeFragment(fragment: Fragment) {
+    this.beginTransaction()
+        .remove(fragment)
+        .commit()
+}

@@ -18,10 +18,12 @@ import com.nie.noodoetest.base.BaseFragment
 import com.nie.noodoetest.bean.Constant
 import com.nie.noodoetest.databinding.FragmentTransportationListBinding
 import com.nie.noodoetest.extension.addFragment
+import com.nie.noodoetest.ui.login.MainViewModel
 import com.nie.noodoetest.ui.modifytimezone.ModifyTimeZoneFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import throttleClick
 
@@ -33,7 +35,7 @@ class TransportationListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentTransportationListBinding
 
-    override val viewModel by viewModel<TransportationListViewModel>()
+    override val viewModel by sharedViewModel<MainViewModel>()
 
     private val adapter by inject<TransportationListAdapter>()
 
@@ -112,9 +114,9 @@ class TransportationListFragment : BaseFragment() {
     }
 
     private fun handleBackPress() {
-        activity?.onBackPressedDispatcher?.addCallback(this, object : OnBackPressedCallback(true) {
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                activity?.finish()
+                requireActivity().finish()
             }
         })
     }

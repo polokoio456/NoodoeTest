@@ -1,15 +1,14 @@
 package com.nie.noodoetest.ui.login
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.InputType
 import android.view.MotionEvent
-import android.view.View
 import com.jakewharton.rxbinding2.view.RxView
 import com.nie.noodoetest.R
 import com.nie.noodoetest.base.BaseActivity
 import com.nie.noodoetest.databinding.ActivityLoginBinding
-import com.nie.noodoetest.extension.addFragment
-import com.nie.noodoetest.extension.hideSoftKeyboard
+import com.nie.noodoetest.extension.*
 import com.nie.noodoetest.ui.transportation.TransportationListFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
@@ -21,7 +20,7 @@ class LoginActivity : BaseActivity() {
 
     private val binding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
 
-    override val viewModel by viewModel<LoginViewModel>()
+    override val viewModel by viewModel<MainViewModel>()
 
     private var isVisiblePassword = false
 
@@ -41,8 +40,15 @@ class LoginActivity : BaseActivity() {
             .throttleClick()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                val userName = binding.editTextUserName.text.toString()
-                val password = binding.editTextPassword.text.toString()
+                hideSoftKeyboard()
+
+                val userName = binding.editTextUserName.text.toString().trim()
+                val password = binding.editTextPassword.text.toString().trim()
+
+                if (userName.isValidEmailFormat().not()) {
+                    toast(R.string.email_not_valid)
+                    return@subscribe
+                }
 
                 if (userName.isNotEmpty() && password.isNotEmpty()) {
                     viewModel.login(userName, password)
@@ -52,6 +58,7 @@ class LoginActivity : BaseActivity() {
             }.addTo(compositeDisposable)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setViewsTouchListener() {
         binding.editTextPassword.setOnTouchListener { _, event ->
 
@@ -72,14 +79,20 @@ class LoginActivity : BaseActivity() {
     private fun observableLiveData() {
         viewModel.loginSuccess.observe(this, {
             if (it.not()) {
-                binding.container.visibility = View.GONE
                 return@observe
             }
 
-            binding.container.visibility = View.VISIBLE
+            binding.editTextUserName.setText("")
+            binding.editTextPassword.setText("")
+            binding.container.requestFocus()
 
-            hideSoftKeyboard()
             supportFragmentManager.addFragment(R.id.container, TransportationListFragment.newInstance(), isSlide = false)
+        })
+
+        viewModel.signOutSuccess.observe(this, {
+            for (fragment in supportFragmentManager.fragments) {
+                supportFragmentManager.removeFragment(fragment)
+            }
         })
     }
 }

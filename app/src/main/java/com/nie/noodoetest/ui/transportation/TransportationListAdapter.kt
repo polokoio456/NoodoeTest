@@ -34,7 +34,9 @@ class TransportationListAdapter : RecyclerView.Adapter<TransportationListAdapter
     override fun getItemCount() = items.size
 
     fun addAll(list: List<TransportationInfoItem>) {
+        val previousSize = items.size
         items.clear()
+        notifyItemRangeRemoved(0, previousSize)
         items.addAll(list)
         notifyItemRangeInserted(0, list.size)
     }

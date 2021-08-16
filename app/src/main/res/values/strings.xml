@@ -5,6 +5,10 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="Timezone">Time Zone</string>
-    <string name="login_field_is_empty">"All fields should not be empty."</string>
+    <string name="login_field_is_empty">All fields should not be empty.</string>
+    <string name="email_not_valid">Email is not valid.</string>
     <string name="update_time">最後更新時間: %s</string>
+    <string name="update_time_zone_success">Update Time Zone Success</string>
+    <string name="server_error">Server Error</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

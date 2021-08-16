@@ -2,8 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textUserNameInputLayout"
@@ -59,7 +62,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:text="@string/login"
-        android:textColor="?attr/colorText"
+        android:textColor="?attr/listBackground"
         android:textStyle="bold"
         android:textSize="20sp"
         android:gravity="center"
@@ -70,15 +73,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPasswordInputLayout"/>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="?attr/listBackground"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
