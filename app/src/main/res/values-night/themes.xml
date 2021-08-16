@@ -3,13 +3,13 @@
     <style name="Theme.NoodoeTest" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">?attr/listBackground</item>
+        <item name="colorPrimaryVariant">?attr/listBackground</item>
+        <item name="colorOnPrimary">?attr/listBackground</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">?attr/listBackground</item>
+        <item name="colorSecondaryVariant">?attr/listBackground</item>
+        <item name="colorOnSecondary">?attr/listBackground</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
