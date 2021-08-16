@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jakewharton.rxbinding2.view.RxView
+import com.nie.noodoetest.R
 import com.nie.noodoetest.data.remote.model.response.government.TransportationInfoItem
 import com.nie.noodoetest.databinding.ItemTransportationBinding
+import com.nie.noodoetest.extension.toDateString
+import com.nie.noodoetest.extension.toGovernmentDate
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -43,6 +46,7 @@ class TransportationListAdapter : RecyclerView.Adapter<TransportationListAdapter
         fun bind(item: TransportationInfoItem, compositeDisposable: CompositeDisposable, onItemClicked: (TransportationInfoItem) -> Unit) {
             binding.textTitle.text = item.chtmessage
             binding.textContent.text = item.content
+            binding.textUpdateDate.text = binding.root.context.getString(R.string.update_time).format(item.updatetime.toGovernmentDate().toDateString())
 
             RxView.clicks(binding.root)
                 .throttleClick()

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="color_alpha_thirty_white">#59FFFFFF</color>
     <color name="button_follow_enable">#fcad0d</color>
+    <color name="web_link">#406CB4</color>
 </resources>

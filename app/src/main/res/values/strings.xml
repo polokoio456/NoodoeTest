@@ -6,4 +6,5 @@
     <string name="login">Login</string>
     <string name="Timezone">Time Zone</string>
     <string name="login_field_is_empty">"All fields should not be empty."</string>
+    <string name="update_time">最後更新時間: %s</string>
 </resources>

@@ -15,7 +15,7 @@ fun String.toGovernmentDate(): Date {
     return dateFormat.parse(this) ?: Date()
 }
 
-fun Date.toDateString(pattern: String = "yyyy/MM/dd", zone: TimeZone = TimeZone.getDefault()): String {
+fun Date.toDateString(pattern: String = "yyyy/MM/dd HH:mm:ss", zone: TimeZone = TimeZone.getDefault()): String {
     return SimpleDateFormat(pattern, getDefaultLocale()).apply {
         timeZone = zone
     }.format(this)
