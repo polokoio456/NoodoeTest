@@ -35,6 +35,10 @@ class LoginActivity : BaseActivity() {
         observableLiveData()
     }
 
+    override fun onBackPressed() {
+        finish()
+    }
+
     private fun setOnClickListener() {
         RxView.clicks(binding.textLogin)
             .throttleClick()
