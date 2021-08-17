@@ -3,7 +3,6 @@ package com.nie.noodoetest.ui.transportation
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jakewharton.rxbinding2.view.RxView
 import com.nie.noodoetest.R
 import com.nie.noodoetest.base.BaseFragment
-import com.nie.noodoetest.bean.Constant
 import com.nie.noodoetest.databinding.FragmentTransportationListBinding
 import com.nie.noodoetest.extension.addFragment
 import com.nie.noodoetest.ui.login.MainViewModel
@@ -24,7 +22,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import throttleClick
 
 class TransportationListFragment : BaseFragment() {

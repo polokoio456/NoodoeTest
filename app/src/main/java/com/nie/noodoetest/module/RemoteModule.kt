@@ -2,8 +2,8 @@ package com.nie.noodoetest.module
 
 import com.nie.noodoetest.AppConfig
 import com.nie.noodoetest.data.remote.NetworkService
-import com.nie.noodoetest.data.remote.api.WatchApi
 import com.nie.noodoetest.data.remote.api.GovernmentApi
+import com.nie.noodoetest.data.remote.api.WatchApi
 import org.koin.dsl.module
 
 val remoteModule = module {
